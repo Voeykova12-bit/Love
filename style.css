@@ -1,0 +1,165 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: linear-gradient(135deg, #fff6f9, #fde7f0, #f9ecff);
+  overflow: hidden;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+
+/* ---------- Slides ---------- */
+.slide {
+  position: absolute;
+  inset: 0;
+  padding: 5vh 6vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  opacity: 0;
+  transform: scale(0.97);
+  transition: all 1s ease;
+}
+
+.slide.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ---------- Cloud Background ---------- */
+.clouds-bg {
+  background:
+    linear-gradient(rgba(255,246,249,0.85), rgba(255,246,249,0.85)),
+    url("images/clouds.jpg") center / cover no-repeat;
+  background-color: #f9d5e5;
+}
+
+/* ---------- Text ---------- */
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 6vw, 3.2rem);
+  color: #5c2a4d;
+  margin-bottom: 3vh;
+  animation: fadeIn 1.2s ease;
+}
+
+h1 span {
+  font-style: italic;
+}
+
+h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.6rem, 5vw, 2.4rem);
+  color: #7a3b66;
+  margin-top: 3vh;
+  line-height: 1.3;
+  animation: fadeIn 1.2s ease;
+}
+
+/* ---------- Images ---------- */
+.photo {
+  width: min(80vw, 320px);
+  border-radius: 26px;
+  box-shadow: 0 30px 55px rgba(0,0,0,0.25);
+  animation: pop 1.2s ease;
+}
+
+/* ---------- Final Heart ---------- */
+.heart {
+  font-size: clamp(100px, 30vw, 140px);
+  animation: beat 1.2s infinite;
+}
+
+.love-text {
+  margin-top: 3vh;
+  font-size: clamp(2.2rem, 7vw, 3.4rem);
+  color: #b0125a;
+  animation: fadeIn 1.2s ease;
+}
+
+/* ---------- Animations ---------- */
+@keyframes pop {
+  from { opacity: 0; transform: scale(0.6); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes beat {
+  50% { transform: scale(1.35); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- Extra Slide ---------- */
+.extra-slide {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(135deg, #ffe6f0, #ffd9e5);
+}
+
+.photos-container {
+  position: relative;
+  width: 80vw;
+  height: 400px; /* увеличим высоту, чтобы фото не накладывались */
+  margin-bottom: 3vh;
+}
+
+.fly-photo {
+  position: absolute;
+  width: 45vw; /* чуть меньше половины экрана */
+  max-width: 350px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  opacity: 0;
+  transform: translateY(50px) scale(0.8) rotate(-15deg);
+}
+
+/* ---------- Karaoke Text ---------- */
+.romantic-text {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.karaoke-line {
+  display: inline-block;
+  position: relative;
+  white-space: nowrap;
+  overflow: hidden;
+  color: #b0125a;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  opacity: 0;
+}
+
+.karaoke-animate {
+  animation: karaokeMove linear forwards;
+}
+
+@keyframes karaokeMove {
+  0% { transform: translateX(-100%); opacity: 0.2; }
+  10% { opacity: 1; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes flyIn {
+  0% { opacity: 0; transform: translateY(50px) scale(0.8) rotate(-15deg); }
+  50% { opacity: 1; transform: translateY(-10px) scale(1.05) rotate(10deg); }
+  100% { opacity: 1; transform: translateY(0) scale(1) rotate(0deg); }
+}
